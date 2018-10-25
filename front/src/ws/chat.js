@@ -3,7 +3,7 @@ import { wsRoomConnected } from "../redux/actions";
 
 const chatWS = async (store, room, password) => {
   const { _id: roomId } = room;
-  const socket = io(`ws://localhost:4242/room-${roomId}`);
+  const socket = io(`ws:///ws/room-${roomId}`);
 
   socket.on("connect", () => {
     const state = store.getState();

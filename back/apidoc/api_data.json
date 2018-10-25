@@ -30,7 +30,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/JSProject-Back/node_modules/koa-smart/dist/ApiDocTmp/auth/login.js",
+    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/auth/login.js",
     "groupTitle": "Auth",
     "name": "PostAuthLogin"
   },
@@ -65,7 +65,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/JSProject-Back/node_modules/koa-smart/dist/ApiDocTmp/auth/register.js",
+    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/auth/register.js",
     "groupTitle": "Auth",
     "name": "PostAuthRegister"
   },
@@ -80,7 +80,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/JSProject-Back/node_modules/koa-smart/dist/ApiDocTmp/Index.js",
+    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/Index.js",
     "groupTitle": "Index",
     "name": "Get"
   },
@@ -95,7 +95,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/JSProject-Back/node_modules/koa-smart/dist/ApiDocTmp/message/-id.js",
+    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/message/-id.js",
     "groupTitle": "Message",
     "name": "DeleteMessageId"
   },
@@ -110,7 +110,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/JSProject-Back/node_modules/koa-smart/dist/ApiDocTmp/room/-id.js",
+    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/room/-id.js",
     "groupTitle": "Room",
     "name": "DeleteRoomId"
   },
@@ -138,7 +138,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/JSProject-Back/node_modules/koa-smart/dist/ApiDocTmp/room/-id/messages.js",
+    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/room/-id/messages.js",
     "groupTitle": "Room",
     "name": "GetRoomIdMessages"
   },
@@ -187,7 +187,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/JSProject-Back/node_modules/koa-smart/dist/ApiDocTmp/room.js",
+    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/room.js",
     "groupTitle": "Room",
     "name": "PostRoom"
   },
@@ -222,7 +222,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/JSProject-Back/node_modules/koa-smart/dist/ApiDocTmp/room/-id/message.js",
+    "filename": "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/room/-id/message.js",
     "groupTitle": "Room",
     "name": "PostRoomIdMessage"
   }
