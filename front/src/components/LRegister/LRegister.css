@@ -1,0 +1,10 @@
+.LRegister
+{
+    width: 50%;
+    margin: auto;
+}
+
+.LRegister .field
+{
+    width: 100%;
+}

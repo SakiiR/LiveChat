@@ -1,0 +1,15 @@
+.MyAppBar
+{
+  flex-grow: 1;
+}
+
+.MyBarInfo
+{
+  flex-grow: 1;
+}
+
+.MyBarButton
+{
+  margin-left: -12;
+  margin-right: 20;
+}

@@ -1,0 +1,54 @@
+{
+  "name": "jsproject",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.0.3",
+    "@material-ui/icons": "^3.0.1",
+    "axios": "^0.18.0",
+    "connected-react-router": "^4.4.1",
+    "history": "^4.7.2",
+    "jwt-decode": "^2.2.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "redux": "^4.0.0",
+    "socket.io-client": "^2.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "node_modules/.bin/eslint 'src/**/*.js' --fix",
+    "precommit": "node_modules/.bin/pretty-quick --staged"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "ajv": "^6.5.3",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^0.14.3",
+    "jest": "latest",
+    "prettier": "1.14.2",
+    "pretty-quick": "^1.6.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "jest": true
+    }
+  },
+  "proxy": "http://localhost:1337/"
+}
