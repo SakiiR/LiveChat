@@ -7,7 +7,7 @@ class RoomService {
   authToken = "";
 
   constructor() {
-    this.baseURL = "/room";
+    this.baseURL = "/api/room";
     this.getToken();
   }
 

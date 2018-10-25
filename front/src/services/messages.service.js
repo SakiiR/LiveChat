@@ -7,7 +7,7 @@ class MessageService {
   authToken = "";
 
   constructor() {
-    this.baseURL = "/";
+    this.baseURL = "/api/";
     this.getToken();
   }
 
