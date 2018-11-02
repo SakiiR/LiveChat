@@ -1,0 +1,7 @@
+# Todos
+
+* Rate Limit
+* Description bad validation (on page room) (creation)
+* SSL
+* Error Messages
+* Deploy on scaleway
