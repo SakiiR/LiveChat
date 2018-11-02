@@ -39,7 +39,6 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
-    "http-proxy-middleware": "^0.19.0",
     "husky": "^0.14.3",
     "jest": "latest",
     "prettier": "1.14.2",
@@ -49,6 +48,16 @@
     "env": {
       "browser": true,
       "jest": true
+    }
+  },
+  "proxy": {
+    "/ws": {
+      "target": "ws://localhost:4242",
+      "ws": true
+    },
+    "/api": {
+      "target": "http://localhost:1337",
+      "ws": false
     }
   }
 }

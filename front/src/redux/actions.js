@@ -137,7 +137,8 @@ export const logout = () => ({
   __http: false,
   onEnd: async store => {
     redirect("/", 1000);
-    store.getState().generalReducer.socket.disconnect();
+    const socket = store.getState().generalReducer.socket;
+    if (socket != null) socket.disconnect();
   }
 });
 
