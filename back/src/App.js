@@ -58,11 +58,12 @@ export default class App extends AppBase {
     const koaApp = this.koaApp;
     koaApp.io = socketIO(koaApp.server);
 
-    koaApp.io.of(/^\/room-[a-f0-9]{24}$/).on("connection", client => {
+    koaApp.io.of(/^\/rooms-[a-f0-9]{24}$/).on("connection", client => {
       const newNamespace = client.nsp;
 
+      console.log(`Client connected to ${newNamespace.name}`);
       client.on("authentication", async data => {
-        const { token, room_password } = data;
+        const { token, password: room_password } = data;
         const room_id = newNamespace.name.split("-")[1];
 
         try {
@@ -85,6 +86,7 @@ export default class App extends AppBase {
         } catch (err) {
           console.error("Failed to retrieve room id");
         }
+        console.log("Successfully authenticated to /rooms/rooms-id");
       });
 
       client.on("new-message", async data => {
@@ -93,7 +95,7 @@ export default class App extends AppBase {
             const socket = newNamespace.connected[client];
 
             if (socket.authenticated_room) {
-              socket.emit("new-room", data);
+              socket.emit("new-message", data);
             }
           });
         });
@@ -101,6 +103,7 @@ export default class App extends AppBase {
     });
 
     koaApp.io.of("/rooms").on("connection", client => {
+      console.log("[+] Client connected to /rooms");
       const roomsNamespace = client.nsp;
       client.on("authentication", async data => {
         const { token } = data;
@@ -142,7 +145,7 @@ export default class App extends AppBase {
       });
     });
 
-    koaApp.io.listen(4242);
+    koaApp.io.listen(config.WS_PORT);
 
     super.addMiddlewares([
       cors({ credentials: true }), // add cors headers to the requests

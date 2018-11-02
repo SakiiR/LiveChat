@@ -2,9 +2,10 @@ import io from "socket.io-client";
 import { wsNewRoom, wsConnected, wsRemovedRoom } from "../redux/actions";
 
 const roomWS = async store => {
-  const socket = io("ws:///ws/rooms");
+  const socket = io("ws://localhost:4242/rooms");
 
   socket.on("connect", () => {
+    console.log("[+] Connected to socket!");
     const state = store.getState();
     const { jwt: token } = state.generalReducer;
     socket.emit("authentication", { token });

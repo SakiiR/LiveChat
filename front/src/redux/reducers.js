@@ -67,7 +67,7 @@ const messageReducer = (state = {}, action) => {
     case "MESSAGE_LIST_SUCCESS":
       return [...state, ...action.result.data.data.messages];
     case "NEW_MESSAGE_ACTION":
-      return [...state, action.message];
+      return [...state, action.message.message_body];
     case "LOGOUT_ACTION":
       return [];
     default:

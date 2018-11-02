@@ -50,7 +50,8 @@ export const initialState = {
     loggedIn: false,
     jwt: null,
     error: null,
-    socket: null
+    socket: null,
+    roomSocket: null
   },
   roomReducer: [],
   messageReducer: []
