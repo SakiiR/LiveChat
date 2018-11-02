@@ -5,3 +5,4 @@
 * SSL
 * Error Messages
 * Deploy on scaleway
+* CSS on page /messages
