@@ -3,9 +3,7 @@ import { wsRoomConnected, wsNewMessage } from "../redux/actions";
 
 const chatWS = async (store, room, password) => {
   const { _id: roomId } = room;
-  // const socket = io("ws://localhost:4242/rooms");
-  const socket = io(`ws://localhost:4242/rooms-${roomId}`);
-
+  const socket = io(`ws:///ws/rooms-${roomId}`, { path: "/ws/socket.io/" });
   socket.on("connect", () => {
     const state = store.getState();
     const { jwt: token } = state.generalReducer;

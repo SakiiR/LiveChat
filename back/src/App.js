@@ -56,9 +56,9 @@ export default class App extends AppBase {
     // we add the relevant middlewares to our API
 
     const koaApp = this.koaApp;
-    koaApp.io = socketIO(koaApp.server);
+    koaApp.io = socketIO(koaApp.server, { path: "/ws/socket.io" });
 
-    koaApp.io.of(/^\/rooms-[a-f0-9]{24}$/).on("connection", client => {
+    koaApp.io.of(/^\/ws\/rooms-[a-f0-9]{24}$/).on("connection", client => {
       const newNamespace = client.nsp;
 
       console.log(`Client connected to ${newNamespace.name}`);
@@ -78,7 +78,8 @@ export default class App extends AppBase {
           const room = await Room.findById(room_id);
           if (room === null) client.disconnect(true);
           if (room.private) {
-            if (!compareHash(room.salt + room_password, room.password)) {
+            console.log(`${room.salt}   ${room_password}    ${room.password}`);
+            if (!compareHash(room_password + room.salt, room.password)) {
               client.disconnect(true);
             }
           }
@@ -86,7 +87,6 @@ export default class App extends AppBase {
         } catch (err) {
           console.error("Failed to retrieve room id");
         }
-        console.log("Successfully authenticated to /rooms/rooms-id");
       });
 
       client.on("new-message", async data => {
@@ -102,7 +102,7 @@ export default class App extends AppBase {
       });
     });
 
-    koaApp.io.of("/rooms").on("connection", client => {
+    koaApp.io.of("/ws/rooms").on("connection", client => {
       console.log("[+] Client connected to /rooms");
       const roomsNamespace = client.nsp;
       client.on("authentication", async data => {
@@ -174,7 +174,7 @@ export default class App extends AppBase {
       RateLimit.middleware({ interval: { min: 1 }, max: 100 }) // this will limit every user to call a maximum of 100 request per minute,
     ]);
 
-    super.mountFolder(join(__dirname, "routes"), "/"); // adds a folder to scan for route files
+    super.mountFolder(join(__dirname, "routes"), "/api"); // adds a folder to scan for route files
     return super.start();
   }
 }

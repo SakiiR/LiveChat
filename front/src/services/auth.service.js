@@ -1,10 +1,10 @@
 import axios from "axios";
 
 class AuthService {
-  baseURL = "/api/";
+  baseURL = "/api";
 
   constructor() {
-    this.baseURL = "/api/";
+    this.baseURL = "/api";
   }
 
   async login(user) {

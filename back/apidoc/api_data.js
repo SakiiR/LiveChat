@@ -2,9 +2,9 @@ define({
   api: [
     {
       type: "post",
-      url: "/auth/login",
+      url: "/api/auth/login",
       title: "",
-      group: "Auth",
+      group: "Api_Auth",
       permission: [
         {
           name: "public"
@@ -32,15 +32,15 @@ define({
       },
       version: "0.0.0",
       filename:
-        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/auth/login.js",
-      groupTitle: "Auth",
-      name: "PostAuthLogin"
+        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/api/auth/login.js",
+      groupTitle: "Api_Auth",
+      name: "PostApiAuthLogin"
     },
     {
       type: "post",
-      url: "/auth/register",
+      url: "/api/auth/register",
       title: "",
-      group: "Auth",
+      group: "Api_Auth",
       permission: [
         {
           name: "public"
@@ -68,15 +68,15 @@ define({
       },
       version: "0.0.0",
       filename:
-        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/auth/register.js",
-      groupTitle: "Auth",
-      name: "PostAuthRegister"
+        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/api/auth/register.js",
+      groupTitle: "Api_Auth",
+      name: "PostApiAuthRegister"
     },
     {
       type: "get",
-      url: "/",
+      url: "/api",
       title: "",
-      group: "Index",
+      group: "Api_Index",
       permission: [
         {
           name: "public"
@@ -84,15 +84,15 @@ define({
       ],
       version: "0.0.0",
       filename:
-        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/Index.js",
-      groupTitle: "Index",
-      name: "Get"
+        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/api.js",
+      groupTitle: "Api_Index",
+      name: "GetApi"
     },
     {
       type: "delete",
-      url: "/message/:id",
+      url: "/api/message/:id",
       title: "",
-      group: "Message",
+      group: "Api_Message",
       permission: [
         {
           name: "public"
@@ -100,15 +100,15 @@ define({
       ],
       version: "0.0.0",
       filename:
-        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/message/-id.js",
-      groupTitle: "Message",
-      name: "DeleteMessageId"
+        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/api/message/-id.js",
+      groupTitle: "Api_Message",
+      name: "DeleteApiMessageId"
     },
     {
       type: "delete",
-      url: "/room/:id",
+      url: "/api/room/:id",
       title: "",
-      group: "Room",
+      group: "Api_Room",
       permission: [
         {
           name: "public"
@@ -116,15 +116,15 @@ define({
       ],
       version: "0.0.0",
       filename:
-        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/room/-id.js",
-      groupTitle: "Room",
-      name: "DeleteRoomId"
+        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/api/room/-id.js",
+      groupTitle: "Api_Room",
+      name: "DeleteApiRoomId"
     },
     {
       type: "get",
-      url: "/room/:id/messages",
+      url: "/api/room/:id/messages",
       title: "",
-      group: "Room",
+      group: "Api_Room",
       permission: [
         {
           name: "public"
@@ -145,15 +145,15 @@ define({
       },
       version: "0.0.0",
       filename:
-        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/room/-id/messages.js",
-      groupTitle: "Room",
-      name: "GetRoomIdMessages"
+        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/api/room/-id/messages.js",
+      groupTitle: "Api_Room",
+      name: "GetApiRoomIdMessages"
     },
     {
       type: "post",
-      url: "/room",
+      url: "/api/room",
       title: "",
-      group: "Room",
+      group: "Api_Room",
       permission: [
         {
           name: "public"
@@ -196,15 +196,15 @@ define({
       },
       version: "0.0.0",
       filename:
-        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/room.js",
-      groupTitle: "Room",
-      name: "PostRoom"
+        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/api/room.js",
+      groupTitle: "Api_Room",
+      name: "PostApiRoom"
     },
     {
       type: "post",
-      url: "/room/:id/message",
+      url: "/api/room/:id/message",
       title: "",
-      group: "Room",
+      group: "Api_Room",
       permission: [
         {
           name: "public"
@@ -232,9 +232,9 @@ define({
       },
       version: "0.0.0",
       filename:
-        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/room/-id/message.js",
-      groupTitle: "Room",
-      name: "PostRoomIdMessage"
+        "/home/sakiir/workspace/EPITECH/JavascriptFullStack/LiveChat/back/node_modules/koa-smart/dist/ApiDocTmp/api/room/-id/message.js",
+      groupTitle: "Api_Room",
+      name: "PostApiRoomIdMessage"
     }
   ]
 });

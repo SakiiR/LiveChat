@@ -2,7 +2,7 @@ import io from "socket.io-client";
 import { wsNewRoom, wsConnected, wsRemovedRoom } from "../redux/actions";
 
 const roomWS = async store => {
-  const socket = io("ws://localhost:4242/rooms");
+  const socket = io("ws:///ws/rooms", { path: "/ws/socket.io/" });
 
   socket.on("connect", () => {
     console.log("[+] Connected to socket!");
