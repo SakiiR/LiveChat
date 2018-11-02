@@ -11,7 +11,7 @@ services:
   front:
     build: ./front
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./front/nginx.conf:/etc/nginx/nginx.conf
   mongo:
