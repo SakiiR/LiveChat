@@ -1,8 +1,8 @@
 # Todos
 
-* Rate Limit
-* Description bad validation (on page room) (creation)
-* SSL
-* Error Messages
-* Deploy on scaleway
+* Rate Limit (ERWAN)
+* Can't create room with empty description (cause: front validation)
+* SSL (ERWAN)
+* Error Messages are not displayed (ERWAN)
+* Deploy on scaleway (ERWAN)
 * CSS on page /messages
