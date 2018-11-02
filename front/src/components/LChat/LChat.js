@@ -69,8 +69,8 @@ export default class LChat extends Component {
           {messages.map(
             message =>
               message.room._id === roomId && (
-                <div className="message">
-                  <span key={message._id}>
+                <div key={message._id} className="message">
+                  <span>
                     {message.text} from {message.from.username}
                   </span>
                 </div>
@@ -108,7 +108,7 @@ LChat.propTypes = {
       from: PropTypes.shape({
         username: PropTypes.string.isRequired
       }),
-      text: PropTypes.bool.isRequired,
+      text: PropTypes.string.isRequired,
       _id: PropTypes.string.isRequired,
       room: PropTypes.shape({
         _id: PropTypes.string.isRequired

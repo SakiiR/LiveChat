@@ -2,6 +2,7 @@ import redirect from "../utils/redirect";
 import dispatchError from "../utils/error";
 import actions from "./constants";
 import roomWS from "../ws/rooms";
+import chatWS from "../ws/chat";
 
 /**
  * Room creation
@@ -18,7 +19,7 @@ export const roomCreation = room => ({
     const state = store.getState();
     const { socket } = state.generalReducer;
 
-    socket.emit("new-room", result.data);
+    if (socket !== null) socket.emit("new-room", result.data);
   },
   onError: async (store, error) => {
     dispatchError(store, error.response.data.message, 5000);
@@ -61,6 +62,8 @@ export const roomListMessages = (room, password = null) => ({
   params: [room, password],
   onSuccess: async (store, result) => {
     dispatchError(store, result.data.data.message);
+
+    chatWS(store, room, password);
   },
   onError: async (store, error) => {
     dispatchError(store, error.response.data.message);
@@ -228,7 +231,12 @@ export const roomCreateMessage = (room, password = null, message) => ({
   __service: "messages",
   params: [room, password, message],
   onSuccess: async (store, result) => {
-    store.dispatch(wsNewMessage(result.data.message_body));
+    const state = store.getState();
+    const { roomSocket: socket } = state.generalReducer;
+
+    if (socket != null) socket.emit("new-message", result.data);
   },
-  onError: async (store, error) => {}
+  onError: async (store, error) => {
+    dispatchError(store, error.response.data.message, 5000);
+  }
 });

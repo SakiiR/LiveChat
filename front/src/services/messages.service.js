@@ -2,7 +2,7 @@ import axios from "axios";
 import store from "../redux/store";
 
 class MessageService {
-  baseURL = "";
+  baseURL = "/api/";
 
   authToken = "";
 

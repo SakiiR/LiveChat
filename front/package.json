@@ -14,7 +14,7 @@
     "react-dom": "^16.5.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
+    "react-scripts": "^1.1.5",
     "redux": "^4.0.0",
     "socket.io-client": "^2.1.1"
   },
@@ -49,22 +49,6 @@
     "env": {
       "browser": true,
       "jest": true
-    }
-  },
-  "proxy": {
-    "/api": {
-      "target": "http://localhost:1337/",
-      "ws": false,
-      "pathRewrite": {
-        "^/api": "/"
-      }
-    },
-    "/ws": {
-      "target": "http://localhost:4242/",
-      "ws": true,
-      "pathRewrite": {
-        "^/ws": "/"
-      }
     }
   }
 }
