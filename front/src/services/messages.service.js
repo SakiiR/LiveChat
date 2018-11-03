@@ -38,6 +38,15 @@ class MessageService {
     );
     return result;
   }
+
+  async remove(message) {
+    await this.getToken();
+    const result = await axios.delete(
+      `${this.baseURL}/message/${message._id}`,
+      { headers: { Authorization: this.authToken } }
+    );
+    return result;
+  }
 }
 
 const instance = new MessageService();

@@ -51,6 +51,30 @@ export const roomRemove = (room, password) => ({
 });
 
 /**
+ * Remove a message
+ *
+ * @param {String} messageId Messages's id
+ */
+export const messageRemove = message => ({
+  type: actions.MESSAGE_REMOVE_ACTION,
+  __http: true,
+  __method: "remove",
+  __service: "messages",
+  params: [message],
+  onSuccess: async (store, result) => {
+    dispatchError(store, result.data.message);
+
+    const state = store.getState();
+    const { roomSocket: socket } = state.generalReducer;
+
+    socket.emit("removed-message", result.data.message_body);
+  },
+  onError: async (store, error) => {
+    dispatchError(store, error.response.data.message);
+  }
+});
+
+/**
  * List room messages
  *
  * @param {Object{_id, private}} room The room to list the messages from
@@ -139,8 +163,11 @@ export const logout = () => ({
   __http: false,
   onEnd: async store => {
     redirect("/", 1000);
-    const socket = store.getState().generalReducer.socket;
+    const {
+      generalReducer: { socket, roomSocket }
+    } = store.getState();
     if (socket != null) socket.disconnect();
+    if (roomSocket != null) roomSocket.disconnect();
   }
 });
 
@@ -195,7 +222,10 @@ export const wsRoomConnected = socket => ({
 export const wsNewRoom = room => ({
   type: actions.NEW_ROOM_ACTION,
   __http: false,
-  room
+  room,
+  onEnd: store => {
+    dispatchError(store, "New room created!", 5000);
+  }
 });
 
 /**
@@ -206,7 +236,10 @@ export const wsNewRoom = room => ({
 export const wsNewMessage = message => ({
   type: actions.NEW_MESSAGE_ACTION,
   __http: false,
-  message
+  message,
+  onEnd: store => {
+    dispatchError(store, "New message arrived!", 5000);
+  }
 });
 
 /**
@@ -218,6 +251,17 @@ export const wsRemovedRoom = room => ({
   type: actions.REMOVED_ROOM_ACTION,
   __http: false,
   room
+});
+
+/**
+ * This event is triggered when a message is removed.
+ *
+ * @param {Object{message}} message The removed message
+ */
+export const wsRemovedMessage = message => ({
+  type: actions.REMOVED_MESSAGE_ACTION,
+  __http: false,
+  message
 });
 
 /**

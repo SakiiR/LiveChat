@@ -21,5 +21,7 @@
   "Room not found": "Room not found",
   "No description for room ": "No description for room ",
   "Room deleted": "Room deleted",
-  "You don't own this room!": "You don't own this room!"
+  "You don't own this room!": "You don't own this room!",
+  "Message deleted": "Message deleted",
+  "Message not found!": "Message not found!"
 }

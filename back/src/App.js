@@ -9,7 +9,6 @@ import {
   cors,
   helmet,
   addDefaultBody,
-  handleError,
   logger,
   RateLimit,
   RateLimitStores

@@ -8,6 +8,7 @@ import Register from "../Register/Register";
 import Rooms from "../Rooms/Rooms";
 import Chat from "../Chat/Chat";
 import PrivateRoute from "../../utils/privateRoute";
+import "moment-timezone";
 
 const App = () => (
   <div className="App">

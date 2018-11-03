@@ -1,10 +1,14 @@
 import { connect } from "react-redux";
 import LChat from "../../components/LChat/LChat";
-import { roomListMessages, roomCreateMessage } from "../../redux/actions";
+import {
+  roomListMessages,
+  roomCreateMessage,
+  messageRemove
+} from "../../redux/actions";
 import "./Chat.css";
 
 const mapStateToProps = state => ({
-  messages: state.messageReducer
+  messages: state.messageReducer.reverse()
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -13,6 +17,9 @@ const mapDispatchToProps = dispatch => ({
   },
   listMessages: (room, password = null) => {
     dispatch(roomListMessages(room, password));
+  },
+  handleRemove: message => {
+    dispatch(messageRemove(message));
   }
 });
 

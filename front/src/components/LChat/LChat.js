@@ -2,9 +2,21 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import "./LChat.css";
 import TextField from "@material-ui/core/TextField";
-import { Send } from "@material-ui/icons";
+import { Send, Message, Delete } from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
+import Avatar from "@material-ui/core/Avatar";
+import Moment from "react-moment";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  ListItemSecondaryAction
+} from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import store from "../../redux/store";
 import LPasswordDialog from "../LPasswordDialog/LPasswordDialog";
+import getUsernameFromJwt from "../../utils/jwt";
 
 export default class LChat extends Component {
   constructor() {
@@ -55,9 +67,20 @@ export default class LChat extends Component {
     this.setState({ text: "" });
   };
 
+  internalHandleRemove = message => event => {
+    event.stopPropagation();
+    const { handleRemove } = this.props;
+
+    handleRemove(message);
+  };
+
   render() {
     const { messages } = this.props;
     const { open, text } = this.state;
+    const {
+      generalReducer: { jwt }
+    } = store.getState();
+    const username = getUsernameFromJwt(jwt);
     const {
       match: {
         params: { id: roomId }
@@ -66,16 +89,39 @@ export default class LChat extends Component {
     return (
       <div>
         <div className="chat-content">
-          {messages.map(
-            message =>
-              message.room._id === roomId && (
-                <div key={message._id} className="message">
-                  <span>
-                    {message.text} from {message.from.username}
-                  </span>
-                </div>
-              )
-          )}
+          <List dense>
+            {messages.map(
+              message =>
+                message.room._id === roomId && (
+                  <ListItem key={message._id}>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <Message />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={message.text}
+                      secondary={
+                        <span>
+                          <b>{message.from.username}</b>
+                          <span> - </span>
+                          <Moment fromNow date={message.created_at} />
+                        </span>
+                      }
+                    />
+                    {message.from.username === username && (
+                      <ListItemSecondaryAction>
+                        <IconButton aria-label="Delete">
+                          <Delete
+                            onClick={this.internalHandleRemove(message)}
+                          />
+                        </IconButton>
+                      </ListItemSecondaryAction>
+                    )}
+                  </ListItem>
+                )
+            )}
+          </List>
         </div>
         <div className="chat-bar">
           <form onSubmit={this.internalHandleSubmit}>
@@ -116,5 +162,6 @@ LChat.propTypes = {
     }).isRequired
   ).isRequired,
   handleSubmitMessage: PropTypes.func.isRequired,
-  listMessages: PropTypes.func.isRequired
+  listMessages: PropTypes.func.isRequired,
+  handleRemove: PropTypes.func.isRequired
 };
