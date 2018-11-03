@@ -7,16 +7,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
-import decode from "jwt-decode";
 import LSpinner from "../LSpinner/LSpinner";
-
-const getUsernameFromJwt = jwt => {
-  if (jwt !== null) {
-    let { username } = decode(jwt);
-    return username;
-  }
-  return "";
-};
+import getUsernameFromJwt from "../../utils/jwt";
 
 const LMenu = props => {
   const { loggedIn, title, handleLogout, error, loading, jwt } = props;

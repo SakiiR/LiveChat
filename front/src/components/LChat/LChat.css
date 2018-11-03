@@ -1,10 +1,4 @@
-.rooms {
-  width: 50%;
-  margin: auto;
-  text-align: center;
-}
-
-.rooms-list {
-  width: 50%;
-  margin: auto;
+.chat-content {
+  max-height: 500px;
+  overflow-y: scroll;
 }

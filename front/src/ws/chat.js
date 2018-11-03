@@ -1,5 +1,9 @@
 import io from "socket.io-client";
-import { wsRoomConnected, wsNewMessage } from "../redux/actions";
+import {
+  wsRoomConnected,
+  wsNewMessage,
+  wsRemovedMessage
+} from "../redux/actions";
 
 const chatWS = async (store, room, password) => {
   const { _id: roomId } = room;
@@ -13,6 +17,10 @@ const chatWS = async (store, room, password) => {
 
   socket.on("new-message", data => {
     store.dispatch(wsNewMessage(data));
+  });
+
+  socket.on("removed-message", data => {
+    store.dispatch(wsRemovedMessage(data));
   });
 
   return socket;

@@ -2,6 +2,7 @@ import socketIO from "socket.io";
 import Room from "../models/Room";
 import config from "../config";
 import { compareHash } from "../utils/hash";
+import jwt from "jsonwebtoken";
 
 const initWebsockets = koaApp => {
   koaApp.io = socketIO(koaApp.server, { path: "/ws/socket.io" });
@@ -48,6 +49,18 @@ const initWebsockets = koaApp => {
         });
       });
     });
+
+    client.on("removed-message", async data => {
+      newNamespace.clients((err, clients) => {
+        clients.map(client => {
+          const socket = newNamespace.connected[client];
+
+          if (socket.authenticated_room) {
+            socket.emit("removed-message", data);
+          }
+        });
+      });
+    });
   });
 
   koaApp.io.of("/ws/rooms").on("connection", client => {
@@ -62,6 +75,7 @@ const initWebsockets = koaApp => {
         client.authenticated = true;
       } catch (err) {
         console.error("Failed to decode token");
+        console.error(err);
       }
     });
 

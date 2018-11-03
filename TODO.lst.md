@@ -6,4 +6,3 @@
 - Deploy on scaleway (ERWAN)
 - CSS on page /messages
 - Store token in localStorage etc
-- Custom file for websocket

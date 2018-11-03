@@ -68,6 +68,10 @@ const messageReducer = (state = {}, action) => {
       return [...action.result.data.data.messages];
     case "NEW_MESSAGE_ACTION":
       return [...state, action.message.message_body];
+    case "REMOVED_MESSAGE_ACTION": {
+      console.log("REMOVEDEFOIZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ", action);
+      return [...state.filter(item => item._id !== action.message._id)];
+    }
     case "LOGOUT_REQUEST":
       return [];
     default:
