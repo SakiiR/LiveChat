@@ -16,7 +16,6 @@ import {
   RateLimitStores
 } from "koa-smart/middlewares";
 import socketIO from "socket.io";
-import User from "./models/User";
 import Room from "./models/Room";
 import { compareHash } from "./utils/hash";
 
@@ -171,7 +170,7 @@ export default class App extends AppBase {
       logger(), // gives detailed logs of each request made on the API
       addDefaultBody(), // if no body is present, put an empty object "{}" in its place.
       compress({}), // compresses requests made to the API
-      RateLimit.middleware({ interval: { min: 1 }, max: 100 }) // this will limit every user to call a maximum of 100 request per minute,
+      RateLimit.middleware({ interval: { min: 1 }, max: 40 }) // this will limit every user to call a maximum of 100 request per minute,
     ]);
 
     super.mountFolder(join(__dirname, "routes"), "/api"); // adds a folder to scan for route files

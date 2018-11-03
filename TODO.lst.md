@@ -1,8 +1,9 @@
 # Todos
 
 - Rate Limit (ERWAN)
-- Can't create room with empty description (cause: front validation)
 - SSL (ERWAN)
 - Error Messages are not displayed (ERWAN)
 - Deploy on scaleway (ERWAN)
 - CSS on page /messages
+- Store token in localStorage etc
+- Custom file for websocket
