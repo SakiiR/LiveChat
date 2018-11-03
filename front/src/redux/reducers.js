@@ -55,7 +55,7 @@ const roomReducer = (state = {}, action) => {
       state = state.filter(item => item._id !== roomId);
       return [...state];
     }
-    case "LOGOUT_ACTION":
+    case "LOGOUT_REQUEST":
       return [];
     default:
       return state;
@@ -65,10 +65,10 @@ const roomReducer = (state = {}, action) => {
 const messageReducer = (state = {}, action) => {
   switch (action.type) {
     case "MESSAGE_LIST_SUCCESS":
-      return [...state, ...action.result.data.data.messages];
+      return [...action.result.data.data.messages];
     case "NEW_MESSAGE_ACTION":
       return [...state, action.message.message_body];
-    case "LOGOUT_ACTION":
+    case "LOGOUT_REQUEST":
       return [];
     default:
       return state;

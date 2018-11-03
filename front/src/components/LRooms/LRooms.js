@@ -2,8 +2,15 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import "./LRooms.css";
-import { List, ListItemIcon, ListItem, ListItemText } from "@material-ui/core";
-import { Lock, LockOpen, Delete } from "@material-ui/icons";
+import {
+  List,
+  ListItemIcon,
+  ListItem,
+  ListItemText,
+  ListItemSecondaryAction,
+  IconButton
+} from "@material-ui/core";
+import { Lock, LockOpen, Delete, Send } from "@material-ui/icons";
 import LCreateRoom from "../LCreateRoom/LCreateRoom";
 import LPasswordDialog from "../LPasswordDialog/LPasswordDialog";
 
@@ -55,18 +62,28 @@ class LRooms extends Component {
           <List>
             {rooms != null && rooms.length > 0 ? (
               rooms.map(room => (
-                <ListItem button key={room._id}>
+                <ListItem button>
                   <ListItemIcon className="icon">
                     {room.private ? <Lock /> : <LockOpen />}
                   </ListItemIcon>
-                  <Link to={{ pathname: `/room/${room._id}`, state: { room } }}>
-                    <ListItemText
-                      inset
-                      primary={room.name}
-                      secondary={room.description}
-                    />
-                  </Link>
-                  <Delete onClick={this.internalHandleRemove(room)} />
+                  <ListItemText
+                    inset
+                    primary={room.name}
+                    secondary={room.description}
+                  />
+                  <ListItemSecondaryAction>
+                    <Link
+                      key={room._id}
+                      to={{ pathname: `/room/${room._id}`, state: { room } }}
+                    >
+                      <IconButton aria-label="Send">
+                        <Send />
+                      </IconButton>
+                    </Link>
+                    <IconButton aria-label="Delete">
+                      <Delete onClick={this.internalHandleRemove(room)} />
+                    </IconButton>
+                  </ListItemSecondaryAction>
                 </ListItem>
               ))
             ) : (

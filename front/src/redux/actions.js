@@ -45,7 +45,9 @@ export const roomRemove = (room, password) => ({
 
     socket.emit("removed-room", result.data.room);
   },
-  onError: async (store, result) => {}
+  onError: async (store, error) => {
+    dispatchError(store, error.response.data.message);
+  }
 });
 
 /**

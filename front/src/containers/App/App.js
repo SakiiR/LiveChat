@@ -7,6 +7,7 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Rooms from "../Rooms/Rooms";
 import Chat from "../Chat/Chat";
+import PrivateRoute from "../../utils/privateRoute";
 
 const App = () => (
   <div className="App">
@@ -17,8 +18,8 @@ const App = () => (
       <Route exact path="/" component={LDashboard} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/rooms" component={Rooms} />
-      <Route path="/room/:id" component={Chat} />
+      <PrivateRoute path="/rooms" component={Rooms} />
+      <PrivateRoute path="/room/:id" component={Chat} />
     </div>
   </div>
 );
